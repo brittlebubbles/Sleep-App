@@ -33,6 +33,7 @@ export default function Discover() {
         <LargeText>Discover</LargeText>
         <Feather name="search" size={24} color="white" />
       </Row>
+
       <View style={{ marginBottom: 30 }}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {effects.map((effect) => {
@@ -40,224 +41,226 @@ export default function Discover() {
           })}
         </ScrollView>
       </View>
-      <View>
-        <Row>
-          <Text style={{ color: "white" }}>Recommended</Text>
-          <Text
+      <ScrollView>
+        <View>
+          <Row>
+            <Text style={{ color: "white" }}>Recommended</Text>
+            <Text
+              style={{
+                color: "white",
+                textAlign: "center",
+                alignContent: "center",
+              }}
+            >
+              See All
+            </Text>
+          </Row>
+          <ScrollView horizontal>
+            {recommended.map((recommend) => {
+              return (
+                <BigCards
+                  name={recommend.name}
+                  key={recommend.id}
+                  type={recommend.type}
+                  colors={recommend.colors}
+                />
+              );
+            })}
+          </ScrollView>
+          <Row>
+            <Text style={{ color: "white" }}>Recent</Text>
+          </Row>
+
+          <View
             style={{
-              color: "white",
-              textAlign: "center",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              // backgroundColor: "#311",
+              alignItems: "center",
               alignContent: "center",
             }}
           >
-            See All
-          </Text>
-        </Row>
-        <ScrollView horizontal>
-          {recommended.map((recommend) => {
-            return (
-              <BigCards
-                name={recommend.name}
-                key={recommend.id}
-                type={recommend.type}
-                colors={recommend.colors}
-              />
-            );
-          })}
-        </ScrollView>
-        <Row>
-          <Text style={{ color: "white" }}>Recent</Text>
-        </Row>
-
-        <View
-          style={{
-            flexDirection: "row",
-            flexWrap: "wrap",
-            // backgroundColor: "#311",
-            alignItems: "center",
-            alignContent: "center",
-          }}
-        >
-          <LinearGradient
-            colors={["#13DEA0", "#06B782", "transparent"]}
-            // locations={[0.2, 1]}
-            style={{
-              width: "48%",
-              height: 150,
-              borderRadius: 25,
-              marginRight: 14.5,
-              marginTop: 20,
-            }}
-          >
-            <View
+            <LinearGradient
+              colors={["#13DEA0", "#06B782", "transparent"]}
+              // locations={[0.2, 1]}
               style={{
-                paddingHorizontal: 25,
+                width: "48%",
+                height: 150,
+                borderRadius: 25,
+                marginRight: 14.5,
                 marginTop: 20,
               }}
             >
-              <Text
-                style={{
-                  textAlign: "left",
-                  color: "white",
-                  fontSize: 20,
-                  lineHeight: 22,
-                  paddingBottom: 40,
-                  fontWeight: "bold",
-                }}
-              >
-                Calming Sounds
-              </Text>
-
               <View
                 style={{
-                  flexDirection: "row",
-                  // paddingTop: 60,
-                  marginRight: 20,
+                  paddingHorizontal: 25,
+                  marginTop: 20,
                 }}
               >
-                <View style={{ marginRight: 20 }}>
-                  <HeadphonesSvg />
+                <Text
+                  style={{
+                    textAlign: "left",
+                    color: "white",
+                    fontSize: 20,
+                    lineHeight: 22,
+                    paddingBottom: 40,
+                    fontWeight: "bold",
+                  }}
+                >
+                  Calming Sounds
+                </Text>
+
+                <View
+                  style={{
+                    flexDirection: "row",
+                    // paddingTop: 60,
+                    marginRight: 20,
+                  }}
+                >
+                  <View style={{ marginRight: 20 }}>
+                    <HeadphonesSvg />
+                  </View>
                 </View>
               </View>
-            </View>
-          </LinearGradient>
+            </LinearGradient>
 
-          <LinearGradient
-            // Background Linear Gradient
-            colors={["#FC67A7", "#F6815B", "transparent"]}
-            // locations={[0.2, 1]}
-            style={{
-              width: "48%",
-              height: 150,
-              borderRadius: 25,
-              marginRight: 1,
-              marginTop: 20,
-            }}
-          >
-            <View
+            <LinearGradient
+              // Background Linear Gradient
+              colors={["#FC67A7", "#F6815B", "transparent"]}
+              // locations={[0.2, 1]}
               style={{
-                paddingHorizontal: 25,
+                width: "48%",
+                height: 150,
+                borderRadius: 25,
+                marginRight: 1,
                 marginTop: 20,
               }}
             >
-              <Text
-                style={{
-                  textAlign: "left",
-                  color: "white",
-                  fontSize: 20,
-                  lineHeight: 22,
-                  paddingBottom: 62,
-                  fontWeight: "bold",
-                }}
-              >
-                Insomnia
-              </Text>
-
               <View
                 style={{
-                  flexDirection: "row",
-
-                  marginRight: 20,
+                  paddingHorizontal: 25,
+                  marginTop: 20,
                 }}
               >
-                {/* <View style={{ marginRight: 20 }}>
+                <Text
+                  style={{
+                    textAlign: "left",
+                    color: "white",
+                    fontSize: 20,
+                    lineHeight: 22,
+                    paddingBottom: 62,
+                    fontWeight: "bold",
+                  }}
+                >
+                  Insomnia
+                </Text>
+
+                <View
+                  style={{
+                    flexDirection: "row",
+
+                    marginRight: 20,
+                  }}
+                >
+                  {/* <View style={{ marginRight: 20 }}>
                   <HeadphonesSvg />
                 </View> */}
-                <MovieSvg />
+                  <MovieSvg />
+                </View>
               </View>
-            </View>
-          </LinearGradient>
+            </LinearGradient>
 
-          <LinearGradient
-            // Background Linear Gradient
-            colors={["#F9B50F", "#8A6508", "transparent"]}
-            // locations={[0.2, 1]}
-            style={{
-              width: "48%",
-              height: 150,
-              borderRadius: 25,
-              marginRight: 14.5,
-              marginTop: 20,
-            }}
-          >
-            <View
+            <LinearGradient
+              // Background Linear Gradient
+              colors={["#F9B50F", "#8A6508", "transparent"]}
+              // locations={[0.2, 1]}
               style={{
-                paddingHorizontal: 25,
+                width: "48%",
+                height: 150,
+                borderRadius: 25,
+                marginRight: 14.5,
                 marginTop: 20,
               }}
             >
-              <Text
-                style={{
-                  textAlign: "left",
-                  color: "white",
-                  fontSize: 20,
-                  lineHeight: 22,
-                  paddingBottom: 45,
-                  fontWeight: "bold",
-                }}
-              >
-                For {"     "}Children
-              </Text>
-
               <View
                 style={{
-                  flexDirection: "row",
-                  marginRight: 20,
+                  paddingHorizontal: 25,
+                  marginTop: 20,
                 }}
               >
-                <View style={{ marginRight: 20 }}>
-                  <FileFill />
+                <Text
+                  style={{
+                    textAlign: "left",
+                    color: "white",
+                    fontSize: 20,
+                    lineHeight: 22,
+                    paddingBottom: 45,
+                    fontWeight: "bold",
+                  }}
+                >
+                  For {"     "}Children
+                </Text>
+
+                <View
+                  style={{
+                    flexDirection: "row",
+                    marginRight: 20,
+                  }}
+                >
+                  <View style={{ marginRight: 20 }}>
+                    <FileFill />
+                  </View>
                 </View>
               </View>
-            </View>
-          </LinearGradient>
+            </LinearGradient>
 
-          <LinearGradient
-            // Background Linear Gradient
-            colors={["#441DFC", "#4E81EB", "transparent"]}
-            // locations={[0.2, 1]}
-            style={{
-              width: "48%",
-              height: 150,
-              borderRadius: 25,
-              marginRight: 1,
-              marginTop: 20,
-            }}
-          >
-            <View
+            <LinearGradient
+              // Background Linear Gradient
+              colors={["#441DFC", "#4E81EB", "transparent"]}
+              // locations={[0.2, 1]}
               style={{
-                paddingHorizontal: 25,
+                width: "48%",
+                height: 150,
+                borderRadius: 25,
+                marginRight: 1,
                 marginTop: 20,
               }}
             >
-              <Text
-                style={{
-                  textAlign: "left",
-                  color: "white",
-                  fontSize: 20,
-                  lineHeight: 22,
-                  paddingBottom: 45,
-                  fontWeight: "bold",
-                }}
-              >
-                Tips for Sleeping
-              </Text>
-
               <View
                 style={{
-                  flexDirection: "row",
-
-                  marginRight: 20,
+                  paddingHorizontal: 25,
+                  marginTop: 20,
                 }}
               >
-                <View style={{ marginRight: 20 }}>
-                  <FileFill />
+                <Text
+                  style={{
+                    textAlign: "left",
+                    color: "white",
+                    fontSize: 20,
+                    lineHeight: 22,
+                    paddingBottom: 45,
+                    fontWeight: "bold",
+                  }}
+                >
+                  Tips for Sleeping
+                </Text>
+
+                <View
+                  style={{
+                    flexDirection: "row",
+
+                    marginRight: 20,
+                  }}
+                >
+                  <View style={{ marginRight: 20 }}>
+                    <FileFill />
+                  </View>
                 </View>
               </View>
-            </View>
-          </LinearGradient>
+            </LinearGradient>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </Container>
   );
 }
