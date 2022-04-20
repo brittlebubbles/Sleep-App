@@ -4,6 +4,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 import { effects, recent, recommended } from "../data/typesOfEffects";
@@ -18,14 +19,14 @@ import HeadphonesSvg from "../svgs/HeadphonesSvg";
 import LargeText from "../components/Text/LargeText";
 import { LinearGradient } from "expo-linear-gradient";
 import MovieSvg from "../svgs/MovieSvg";
+import React from "react";
 import RegularText from "../components/Text/RegularText";
 import RoundTabs from "../components/RoundTabs";
 import Row from "../components/Row";
 import SmallCards from "../components/SmallCards";
 import { StatusBar } from "expo-status-bar";
 
-export default function Discover() {
-  console.log("Effects", effects);
+export default function Discover({ navigation }: any) {
   return (
     <Container>
       <StatusBar style="light" />
@@ -41,6 +42,7 @@ export default function Discover() {
           })}
         </ScrollView>
       </View>
+
       <ScrollView>
         <View>
           <Row>
@@ -58,12 +60,18 @@ export default function Discover() {
           <ScrollView horizontal>
             {recommended.map((recommend) => {
               return (
-                <BigCards
-                  name={recommend.name}
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("DiscoverDetails")}
                   key={recommend.id}
-                  type={recommend.type}
-                  colors={recommend.colors}
-                />
+                >
+                  <BigCards
+                    name={recommend.name}
+                    key={recommend.id}
+                    type={recommend.type}
+                    colors={recommend.colors}
+                    // onPress={handlePress}
+                  />
+                </TouchableOpacity>
               );
             })}
           </ScrollView>

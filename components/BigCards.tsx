@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import HeadphonesSvg from "../svgs/HeadphonesSvg";
 import { LinearGradient } from "expo-linear-gradient";
@@ -7,8 +7,9 @@ import React from "react";
 import RegularText from "./Text/RegularText";
 import { effects } from "../data/typesOfEffects";
 
-const BigCards = ({ name, type, colors, id }: any) => {
+const BigCards = ({ name, type, colors, id, onPress }: any) => {
   return (
+    // <TouchableOpacity onPress={onPress}>
     <View key={id} style={{ marginRight: 25 }}>
       <LinearGradient
         // Background Linear Gradient
@@ -63,6 +64,7 @@ const BigCards = ({ name, type, colors, id }: any) => {
         {/* </View> */}
       </LinearGradient>
     </View>
+    // </TouchableOpacity>
   );
 };
 

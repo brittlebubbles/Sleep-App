@@ -23,6 +23,7 @@ export const recommended = [
     name: "Sleep Meditation",
     type: "7 Day Audio and Video Series",
     colors: ["#441DFC", "#4E81EB", "transparent"],
+    images: ["../assets/mount.png"],
   },
   {
     id: 2,
