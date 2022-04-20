@@ -1,3 +1,5 @@
+import { Entypo, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+
 import AppNavigator from "./AppStack";
 import Discover from "../screens/Discover";
 import Profile from "../screens/Profile";
@@ -19,17 +21,41 @@ export function BottomTab() {
           position: "absolute",
           borderTopWidth: 0,
         },
+        tabBarActiveTintColor: "#4A80F0",
       })}
     >
       <Tab.Screen
         name="Dashboard"
         component={Discover}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons name="md-compass-outline" size={30} color={color} />
+          ),
+          tabBarShowLabel: false,
+        }}
+      />
+      <Tab.Screen
+        name="Analytics"
+        component={Profile}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size, focused }) => (
+            <Entypo name="bar-graph" size={20} color="#515979" />
+          ),
+          tabBarShowLabel: false,
+        }}
       />
       <Tab.Screen
         name="Profile"
         component={Profile}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size, focused }) => (
+            <MaterialCommunityIcons name="account" size={30} color="#515979" />
+          ),
+          tabBarShowLabel: false,
+        }}
       />
     </Tab.Navigator>
   );
